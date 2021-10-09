@@ -65,6 +65,7 @@ export default function Agregar({ navigation }) {
                     <View style={styles.inputGroup}>
                         {<RNPickerSelect
                             placeholder={{ label: "Seleccione la categoria", value: null }}
+                            placeholderTextColor="red"
                             onValueChange={(value) => handleChange("categoria", value)}
                             items={[
                                 { label: "Bebidas", value: "Bebidas" },
@@ -129,6 +130,7 @@ const styles = StyleSheet.create({
         padding: 2,
         marginBottom: 25,
         borderRadius: 4,
+        color: 'black',
         alignSelf: 'stretch',
         backgroundColor: 'white',
         borderBottomWidth: 1,
