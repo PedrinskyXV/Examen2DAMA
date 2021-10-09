@@ -1,28 +1,46 @@
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
-//Componentes del proyecto
+import { StyleSheet } from 'react-native';
+import{NavigationContainer}from'@react-navigation/native';
+import{createNativeStackNavigator}from'@react-navigation/native-stack';
+import Login from './src/views/Login/login';
 import Index from './src/views/Index/index';
-import Home from './src/views/Home/home';
-import Registro from './src/views/Registro/registro';
-import Settings from './src/views/Settings/settings';
+import Bebidas from './src/views/Menu/bebidas';
+import Carnes from './src/views/Menu/carnes';
+import Ensaladas from './src/views/Menu/ensaladas';
+import Mariscos from './src/views/Menu/mariscos';
+import Agregar from './src/views/js/Agregar';
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-      <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name ="Login" component={Index}/>
-          <Stack.Screen name ="Menu" component={Home}/>
-          <Stack.Screen name ="Registro de Platillo/Bebida" component={Registro}/>
-          <Stack.Screen name ="Settings" component={Settings}/>
-        </Stack.Navigator>
-      </NavigationContainer>
+    <NavigationContainer>
+      <Stack.Navigator
+        screenOptions={{
+          /*headerStyle: {
+            backgroundColor: 'cyan',
+          },*/
+          headerTitleAlign: 'center',
+          headerBackVisible: true, //Oculta el logo atrás
+          headerShown: true, //Oculta el stack
+        }}
+      >
+        <Stack.Screen name="LOGIN" component={Login} options={{headerShown: false}} />
+        <Stack.Screen name="INDEX" component={Index} options={{headerShown: false, title:'BRASAS Y LEÑA RESTAURANT'}}/>
+        <Stack.Screen name="BEBIDAS" component={Bebidas} />
+        <Stack.Screen name="CARNES" component={Carnes} />
+        <Stack.Screen name="ENSALADAS" component={Ensaladas} />
+        <Stack.Screen name="MARISCOS" component={Mariscos} />
+        <Stack.Screen name="AGREGAR" component={Agregar} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-//https://www.reactnative.express/environment
-//https://rnfirebase.io/
-//https://medium.com/@FavreLeandro/tutorial-b%C3%A1sico-de-react-navigation-5bca57cdebdf
+const styles = StyleSheet.create({
+  tituloMenu: {
+      fontSize: 20,
+      color: '#FFD700',
+      backgroundColor: 'black',
+  },
+});
